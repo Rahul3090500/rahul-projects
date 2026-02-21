@@ -1,0 +1,365 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rahul Raj | Portfolio</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg-color: #08080a;
+            --card-bg: rgba(255, 255, 255, 0.04);
+            --card-border: rgba(255, 255, 255, 0.1);
+            --accent-color: #0071e3;
+            --text-main: #f5f5f7;
+            --text-dim: #86868b;
+            --glass: blur(20px);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Inter', sans-serif;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        body {
+            background-color: var(--bg-color);
+            background-image: 
+                radial-gradient(circle at top left, rgba(0, 113, 227, 0.12), transparent 40%),
+                radial-gradient(circle at bottom right, rgba(0, 113, 227, 0.08), transparent 40%);
+            color: var(--text-main);
+            display: flex;
+            justify-content: center;
+            min-height: 100vh;
+            padding: 60px 20px;
+        }
+
+        .container {
+            width: 100%;
+            max-width: 520px;
+        }
+
+        /* Profile Section */
+        .profile {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+
+        .avatar-container {
+            position: relative;
+            width: 110px;
+            height: 110px;
+            margin: 0 auto 20px;
+        }
+
+        .avatar {
+            width: 100%;
+            height: 100%;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 2px solid var(--card-border);
+            padding: 4px;
+            background: linear-gradient(145deg, rgba(255,255,255,0.1), transparent);
+        }
+
+        .status-dot {
+            position: absolute;
+            bottom: 8px;
+            right: 8px;
+            width: 14px;
+            height: 14px;
+            background: #30d158;
+            border: 3px solid var(--bg-color);
+            border-radius: 50%;
+        }
+
+        h1 {
+            font-size: 26px;
+            font-weight: 700;
+            letter-spacing: -0.5px;
+            margin-bottom: 6px;
+        }
+
+        .role {
+            color: var(--text-dim);
+            font-size: 14px;
+            font-weight: 400;
+            letter-spacing: 0.2px;
+        }
+
+        /* Grouping */
+        .group-title {
+            font-size: 11px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+            color: var(--text-dim);
+            margin: 32px 0 12px 6px;
+            display: flex;
+            align-items: center;
+        }
+
+        .group-title::after {
+            content: "";
+            flex: 1;
+            height: 1px;
+            background: var(--card-border);
+            margin-left: 15px;
+        }
+
+        /* Link Cards */
+        .links-list {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
+
+        .card {
+            background: var(--card-bg);
+            border: 1px solid var(--card-border);
+            backdrop-filter: var(--glass);
+            -webkit-backdrop-filter: var(--glass);
+            padding: 14px 18px;
+            border-radius: 18px;
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .card:hover {
+            transform: translateY(-2px) scale(1.01);
+            background: rgba(255, 255, 255, 0.08);
+            border-color: rgba(255, 255, 255, 0.2);
+            box-shadow: 0 12px 24px rgba(0,0,0,0.4);
+        }
+
+        .icon {
+            width: 42px;
+            height: 42px;
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 12px;
+            margin-right: 16px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+            overflow: hidden;
+            border: 1px solid var(--card-border);
+        }
+
+        .icon img {
+            width: 22px;
+            height: 22px;
+            object-fit: contain;
+        }
+
+        .content {
+            flex-grow: 1;
+        }
+
+        .name {
+            display: block;
+            color: var(--text-main);
+            font-weight: 600;
+            font-size: 15px;
+            margin-bottom: 2px;
+        }
+
+        .desc {
+            display: block;
+            color: var(--text-dim);
+            font-size: 12px;
+            line-height: 1.4;
+        }
+
+        .badge {
+            font-size: 9px;
+            font-weight: 700;
+            background: rgba(0, 113, 227, 0.15);
+            color: #409fff;
+            padding: 2px 8px;
+            border-radius: 6px;
+            margin-left: 6px;
+            vertical-align: middle;
+        }
+
+        /* Footer */
+        .footer {
+            margin-top: 50px;
+            padding: 20px 0;
+            text-align: center;
+            border-top: 1px solid var(--card-border);
+            display: flex;
+            justify-content: center;
+            gap: 24px;
+        }
+
+        .social {
+            color: var(--text-dim);
+            text-decoration: none;
+            font-size: 13px;
+            font-weight: 500;
+            transition: color 0.2s;
+        }
+
+        .social:hover {
+            color: var(--accent-color);
+        }
+
+        @media (max-width: 480px) {
+            .container { padding: 0 5px; }
+            h1 { font-size: 22px; }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <!-- Header -->
+        <header class="profile">
+            <div class="avatar-container">
+                <img src="https://lh3.googleusercontent.com/a/ACg8ocJ_-yXawDWQlNQW37_t4Axl---TtLamhJyA1KGMhJwF3zzKZ8Mo=s576-c-no" alt="Rahul Raj" class="avatar">
+                <div class="status-dot"></div>
+            </div>
+            <h1>Rahul Raj</h1>
+            <p class="role">Frontend / Full Stack Developer</p>
+        </header>
+
+        <div class="links-list">
+            
+            <!-- GROUP 1 -->
+            <div class="group-title">Featured Engineering</div>
+
+            <a href="https://morf-new.vercel.app/customiser" class="card" target="_blank">
+                <div class="icon"><img src="https://www.google.com/s2/favicons?sz=64&domain=morf-new.vercel.app"></div>
+                <div class="content">
+                    <span class="name">MORF 3D Customizer <span class="badge">Three.js</span></span>
+                    <span class="desc">Interactive 3D product visualization and rendering.</span>
+                </div>
+            </a>
+
+            <a href="https://www.spadtek.com" class="card" target="_blank">
+                <div class="icon"><img src="https://www.google.com/s2/favicons?sz=64&domain=spadtek.com"></div>
+                <div class="content">
+                    <span class="name">Spadtek <span class="badge">Next.js</span></span>
+                    <span class="desc">Official corporate platform with SEO & performance focus.</span>
+                </div>
+            </a>
+
+            <a href="https://www.ncgrp.se" class="card" target="_blank">
+                <div class="icon"><img src="https://www.google.com/s2/favicons?sz=64&domain=ncgrp.se"></div>
+                <div class="content">
+                    <span class="name">NCG (NCGRP) <span class="badge">CMS</span></span>
+                    <span class="desc">Full-stack CMS-driven corporate website.</span>
+                </div>
+            </a>
+
+            <a href="https://www.mindstepleadership.com" class="card" target="_blank">
+                <div class="icon"><img src="https://www.google.com/s2/favicons?sz=64&domain=mindstepleadership.com"></div>
+                <div class="content">
+                    <span class="name">Mind Step Leadership</span>
+                    <span class="desc">Leadership coaching with dynamic PDF generation.</span>
+                </div>
+            </a>
+
+            <!-- GROUP 2 -->
+            <div class="group-title">Production Projects</div>
+
+            <a href="https://mymindhub.vercel.app" class="card" target="_blank">
+                <div class="icon"><img src="https://www.google.com/s2/favicons?sz=64&domain=mymindhub.vercel.app"></div>
+                <div class="content">
+                    <span class="name">Mind Hub</span>
+                    <span class="desc">Interactive platform for mental health & wellness.</span>
+                </div>
+            </a>
+
+            <a href="https://www.speakerssolutions.com.au" class="card" target="_blank">
+                <div class="icon"><img src="https://www.google.com/s2/favicons?sz=64&domain=speakerssolutions.com.au"></div>
+                <div class="content">
+                    <span class="name">Speakers Solutions</span>
+                    <span class="desc">Event services platform with custom middleware.</span>
+                </div>
+            </a>
+
+            <a href="https://www.uptiksolution.com" class="card" target="_blank">
+                <div class="icon"><img src="https://www.google.com/s2/favicons?sz=64&domain=uptiksolution.com"></div>
+                <div class="content">
+                    <span class="name">Uptik Solutions</span>
+                    <span class="desc">Business services and career portal.</span>
+                </div>
+            </a>
+
+            <a href="https://www.smallscreenmarketing.com" class="card" target="_blank">
+                <div class="icon"><img src="https://www.google.com/s2/favicons?sz=64&domain=smallscreenmarketing.com"></div>
+                <div class="content">
+                    <span class="name">Small Screen Marketing</span>
+                    <span class="desc">Agency website focused on branding & UI.</span>
+                </div>
+            </a>
+
+            <a href="https://www.joinwithme.in" class="card" target="_blank">
+                <div class="icon"><img src="https://www.google.com/s2/favicons?sz=64&domain=joinwithme.in"></div>
+                <div class="content">
+                    <span class="name">Join With Me</span>
+                    <span class="desc">Community-focused collaboration platform.</span>
+                </div>
+            </a>
+
+            <a href="https://ekaa.vercel.app" class="card" target="_blank">
+                <div class="icon"><img src="https://www.google.com/s2/favicons?sz=64&domain=ekaa.vercel.app"></div>
+                <div class="content">
+                    <span class="name">Ekaa Platform</span>
+                    <span class="desc">Modular web-based service platform.</span>
+                </div>
+            </a>
+
+            <!-- GROUP 3 -->
+            <div class="group-title">Demos & Labs</div>
+
+            <a href="https://demo-upgrad.kurage.in" class="card" target="_blank">
+                <div class="icon"><img src="https://www.google.com/s2/favicons?sz=64&domain=upgrad.com"></div>
+                <div class="content">
+                    <span class="name">UpGrad Masterclass</span>
+                    <span class="desc">EdTech UI demo and user flow testing.</span>
+                </div>
+            </a>
+
+            <a href="https://digilife-jet.vercel.app" class="card" target="_blank">
+                <div class="icon"><img src="https://www.google.com/s2/favicons?sz=64&domain=digilife-jet.vercel.app"></div>
+                <div class="content">
+                    <span class="name">Digilife</span>
+                    <span class="desc">Digital lifestyle platform prototype.</span>
+                </div>
+            </a>
+
+            <a href="https://demo-faeves.kurage.in" class="card" target="_blank">
+                <div class="icon"><img src="https://www.google.com/s2/favicons?sz=64&domain=kurage.in"></div>
+                <div class="content">
+                    <span class="name">Faeves Demo</span>
+                    <span class="desc">Experimental features and UI validation.</span>
+                </div>
+            </a>
+
+            <a href="https://demo-agrim.kurage.in" class="card" target="_blank">
+                <div class="icon"><img src="https://www.google.com/s2/favicons?sz=64&domain=kurage.in"></div>
+                <div class="content">
+                    <span class="name">Agrim Demo</span>
+                    <span class="desc">Application feature testing environment.</span>
+                </div>
+            </a>
+
+        </div>
+
+        <!-- Footer -->
+        <footer class="footer">
+            <a href="https://github.com/rahul3090500" class="social" target="_blank">GitHub</a>
+            <a href="tel:8271308890" class="social">Call</a>
+            <a href="mailto:raj3090500@gmail.com" class="social">Email</a>
+        </footer>
+    </div>
+
+</body>
+</html>
